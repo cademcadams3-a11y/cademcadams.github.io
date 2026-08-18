@@ -1,15 +1,18 @@
 /* Global Styles */
 :root {
-    --primary-color: #222; /* Dark grey for text and headings */
-    --secondary-color: #f4f4f4; /* Light grey for backgrounds */
-    --accent-color: #007bff; /* Blue for links and interactive elements */
-    --accent-color-strong: #0056b3;
-    --text-color: #333;
-    --muted-color: #6b6b6b;
+    --primary-color: #221a33; /* Deep violet-black for text and headings */
+    --secondary-color: #f5f0ff; /* Soft lavender for backgrounds */
+    --accent-color: #7c3aed; /* Violet for links and interactive elements */
+    --accent-color-strong: #5b21b6;
+    --accent-color-2: #f97316; /* Warm orange, second brand color */
+    --accent-color-3: #06b6d4; /* Cyan, third brand color */
+    --brand-gradient: linear-gradient(120deg, #7c3aed, #ec4899 50%, #f97316);
+    --text-color: #33283f;
+    --muted-color: #7a6f8c;
     --bg-color: #fff; /* White background */
-    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    --card-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.1);
-    --border-color: #e5e5e5;
+    --card-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+    --card-shadow-hover: 0 8px 20px rgba(124, 58, 237, 0.18);
+    --border-color: #ecdffc;
     --line-height: 1.6;
     --spacing: 20px; /* Base spacing unit */
     --radius: 8px;
@@ -17,16 +20,19 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary-color: #f2f2f2;
-        --secondary-color: #1c1c1c;
-        --accent-color: #4da3ff;
-        --accent-color-strong: #7cbfff;
-        --text-color: #d8d8d8;
-        --muted-color: #9a9a9a;
-        --bg-color: #121212;
+        --primary-color: #f2edf9;
+        --secondary-color: #201a2b;
+        --accent-color: #a78bfa;
+        --accent-color-strong: #c4b5fd;
+        --accent-color-2: #fb923c;
+        --accent-color-3: #22d3ee;
+        --brand-gradient: linear-gradient(120deg, #a78bfa, #f472b6 50%, #fb923c);
+        --text-color: #ddd3ee;
+        --muted-color: #a596bf;
+        --bg-color: #14101c;
         --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-        --card-shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.45);
-        --border-color: #2c2c2c;
+        --card-shadow-hover: 0 8px 20px rgba(167, 139, 250, 0.25);
+        --border-color: #2c2440;
     }
 }
 
@@ -64,7 +70,9 @@ h1 {
 
 h2 {
     font-size: 2em;
-    border-bottom: 2px solid var(--border-color); /* Subtle separator */
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    border-image: var(--brand-gradient) 1;
     padding-bottom: calc(var(--spacing) / 4);
     margin-top: calc(var(--spacing) * 1.5); /* More space above section titles */
 }
@@ -120,7 +128,6 @@ ul {
 
 /* Header */
 header {
-    background-color: var(--bg-color);
     padding: var(--spacing) 0;
     text-align: center;
     border-bottom: 1px solid var(--border-color); /* Separator */
@@ -128,7 +135,15 @@ header {
     top: 0;
     z-index: 10;
     backdrop-filter: blur(8px);
-    background-color: color-mix(in srgb, var(--bg-color) 92%, transparent);
+    background: color-mix(in srgb, var(--bg-color) 88%, transparent);
+}
+
+header h1 {
+    background: var(--brand-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .header-inner {
@@ -202,8 +217,17 @@ section {
     padding: var(--spacing);
     margin-bottom: var(--spacing);
     border-radius: var(--radius); /* Slightly rounded corners */
+    border-left: 4px solid var(--accent-color-3);
     box-shadow: var(--card-shadow);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.blog-post-summary:nth-of-type(2) {
+    border-left-color: var(--accent-color-2);
+}
+
+.blog-post-summary:nth-of-type(3) {
+    border-left-color: var(--accent-color);
 }
 
 .blog-post-summary:hover {
@@ -279,11 +303,21 @@ section {
     font-size: 0.9em;
     font-weight: 600;
     color: var(--text-color);
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .project-links a:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+    color: #fff;
+    border-color: transparent;
+    background: var(--brand-gradient);
+}
+
+.project-card:nth-of-type(odd) {
+    border-top: 4px solid var(--accent-color);
+}
+
+.project-card:nth-of-type(even) {
+    border-top: 4px solid var(--accent-color-2);
 }
 
 /* Resume Section */
@@ -320,12 +354,13 @@ section {
 
 .skills-list li {
     display: inline-block;
-    background-color: var(--primary-color); /* Dark background for skills */
-    color: var(--bg-color); /* White text */
+    background: var(--brand-gradient); /* Colorful gradient skill tags */
+    color: #fff;
     padding: 5px 15px;
     margin: 5px 5px 5px 0;
     border-radius: 999px; /* Pill-shaped skill tags */
     font-size: 0.9em;
+    font-weight: 600;
 }
 
 .resume-download {
@@ -336,12 +371,16 @@ section {
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 999px;
-    border: 1px solid var(--accent-color);
+    border: 1px solid transparent;
+    background: var(--brand-gradient);
+    color: #fff;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .resume-download:hover {
-    background-color: var(--accent-color);
+    opacity: 0.9;
     color: #fff;
+    transform: translateY(-1px);
 }
 
 /* Contact Section */
@@ -353,11 +392,20 @@ section {
 
 .social-links a {
     font-size: 1.5em; /* Larger social icons */
-    color: var(--text-color);
+    color: var(--accent-color);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:nth-of-type(2) {
+    color: var(--accent-color-2);
+}
+
+.social-links a:nth-of-type(3) {
+    color: var(--accent-color-3);
 }
 
 .social-links a:hover {
-    color: var(--accent-color);
+    transform: translateY(-2px) scale(1.1);
 }
 
 /* Footer */
