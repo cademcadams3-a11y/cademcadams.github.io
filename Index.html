@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website and portfolio.">
+    <title>Your Name - Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons (optional, recommended for resume/projects) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <div class="header-inner">
+            <h1>Your Name</h1>
+            <p class="tagline">Minimalist Personal Website &amp; Portfolio</p>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>A brief introduction about yourself, your passion, and what you do. Keep it concise and engaging. Replace this text with your own.</p>
+        </section>
+
+        <section id="blog">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-list">
+                <article class="blog-post-summary">
+                    <h3><a href="#">Post Title 1</a></h3>
+                    <p class="post-meta">Published on <time datetime="YYYY-MM-DD">Date</time></p>
+                    <p>A short excerpt from the blog post. Replace this with the actual content or link to a full post.</p>
+                </article>
+                <article class="blog-post-summary">
+                    <h3><a href="#">Post Title 2</a></h3>
+                    <p class="post-meta">Published on <time datetime="YYYY-MM-DD">Date</time></p>
+                    <p>Another short excerpt from the blog post. Add more posts as needed.</p>
+                </article>
+                <p class="view-all"><a href="#">View all posts &rarr;</a></p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Project Alpha</h3>
+                    <p>A brief description of Project Alpha, highlighting key features and technologies used. Replace with your project details.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener"><i class="fas fa-link" aria-hidden="true"></i> Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Project Beta</h3>
+                    <p>Description for Project Beta. Focus on the problem it solves and your contribution. Add more project cards as needed.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener"><i class="fas fa-link" aria-hidden="true"></i> Live Demo</a>
+                        <a href="#" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>Here you can find my professional background and qualifications. Consider downloading the full PDF version.</p>
+            <div class="resume-content">
+                <h3>Summary</h3>
+                <p>A concise summary of your professional experience, skills, and career goals. Tailor this to highlight your strengths.</p>
+
+                <h3>Experience</h3>
+                <div class="job">
+                    <h4>Job Title | Company Name</h4>
+                    <p class="job-meta">Month Year - Month Year | Location</p>
+                    <ul>
+                        <li>Key responsibility or achievement 1. Use action verbs and quantifiable results.</li>
+                        <li>Key responsibility or achievement 2.</li>
+                        <!-- Add more bullet points as needed -->
+                    </ul>
+                </div>
+                <div class="job">
+                    <h4>Previous Job Title | Previous Company Name</h4>
+                    <p class="job-meta">Month Year - Month Year | Location</p>
+                    <ul>
+                        <li>Key responsibility or achievement 1.</li>
+                        <li>Key responsibility or achievement 2.</li>
+                    </ul>
+                </div>
+                <!-- Add more job entries as needed -->
+
+                <h3>Education</h3>
+                <div class="education">
+                    <h4>Degree Name | Major</h4>
+                    <p class="edu-meta">University Name | Year of Graduation</p>
+                    <!-- Add more education entries if applicable -->
+                </div>
+
+                <h3>Skills</h3>
+                <ul class="skills-list">
+                    <li>JavaScript</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <!-- Add your relevant skills here -->
+                </ul>
+            </div>
+            <p><a class="resume-download" href="#" download><i class="fas fa-download" aria-hidden="true"></i> Download Full Resume (PDF)</a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>Interested in collaborating or have a question? Feel free to reach out!</p>
+            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+            <div class="social-links">
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <!-- Add more social links as needed -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Automatically update the current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
